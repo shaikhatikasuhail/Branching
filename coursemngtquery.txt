@@ -1,0 +1,27 @@
+create table course(cid int primary key,cname varchar(50));
+
+create table faculty(fid int primary key,fname varchar(50),cid int,foreign key (cid) references course(cid));
+
+create table batch(bid int primary key,bname varchar(50),fid int,foreign key (fid) references faculty(fid));
+
+create table Student(sid int primary key,sname varchar(50),bid int,foreign key (bid) references batch(bid));
+
+SELECT * FROM course c;
+
+SELECT * FROM faculty f;	ccid
+
+SELECT * FROM batch b;
+
+SELECT * FROM student s;
+
+
+
+inner join
+
+select course.cid,course.cname,faculty.fid,faculty.fname from faculty inner join course on faculty.cid=course.cid;
+
+select course.cname,faculty.fname,batch.bname,batch.bid from batch inner join faculty on batch.bid=faculty.fid inner join course on faculty.cid=course.cid";
+
+ faculty batch student
+
+select faculty.fname,batch.bname,student.sname,student.sid from student inner join batch on batch.bid=student.sid inner join batch on batch.bid=faculty.fid;
